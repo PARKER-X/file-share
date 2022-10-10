@@ -4,7 +4,14 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 
 from home.serializers import FileListSerializer
+from .serializers import *
+from rest_framework.parsers import MultiPartParser
 
+def home(request):
+    return render(request, 'home/home.html')
+
+def download(request , uid):
+    return render(request , 'home/download.html' , context = {'uid' : uid})
 
 # Create your views here.
 class HandleFileUpload(APIView):
